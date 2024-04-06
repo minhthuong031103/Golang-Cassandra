@@ -16,6 +16,7 @@ func main() {
 	router.HandleFunc("/user/all", GetAllUsers).Methods("GET")       // http://localhost:3000/getstudents
 	router.HandleFunc("/count", CountAllUsers).Methods("GET")        // http://localhost:3000/count
 	router.HandleFunc("/getone/{userId}", GetOneUser).Methods("GET") // http://localhost:3000/getone/1
+	router.HandleFunc(("/delete/all"), DeleteAllUsers).Methods("DELETE")
 
 	headers := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
 	methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"})

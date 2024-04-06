@@ -78,6 +78,15 @@ func CountAllUsers(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "%s ", Count)
 
 }
+func DeleteAllUsers(w http.ResponseWriter, r *http.Request) {
+
+	if err := Session.Query("TRUNCATE user").Exec(); err != nil {
+		fmt.Println("Error while deleting all students")
+		fmt.Println(err)
+	}
+	fmt.Fprintf(w, "deleted all successfully")
+
+}
 
 // func DeleteOneStudent(w http.ResponseWriter, r *http.Request) {
 // 	userId := mux.Vars(r)["UserId"]
